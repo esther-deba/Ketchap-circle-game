@@ -5,7 +5,6 @@ public class Position {
     private int hauteur = 0; 
     private int vitesse = 0;
 
-    private static final int HAUTEUR = 10; 
     private static final int IMPULSION = 10; 
 
     private static final int HAUTEUR_MAX = 150; 
