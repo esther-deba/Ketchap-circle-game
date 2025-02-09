@@ -18,16 +18,16 @@ public class Parcours {
 
     // Méthode pour générer un parcours aléatoire
     public void genererParcours() {
-        int x = Position.getBefore();
+        int x = Position.getBefore() - X_MAX;
         int y = Position.getHauteurOval();
 
         // Ajout des points de départ
         points.add(new Point(x, y));
-        x+= X_MIN;
+        x = Position.getBefore();
         points.add(new Point(x, y));
 
         // Génération des points aléatoires
-        while (x < Position.getAfter()) {
+        while (x < Position.getAfter() + X_MAX) {
             y = Position.getHauteurMin() + RANDOM.nextInt(Position.getHauteurMax() - Position.getHauteurMin() + 1);
             x += X_MIN + RANDOM.nextInt(X_MAX - X_MIN + 1);
             points.add(new Point(x, y));
@@ -38,11 +38,5 @@ public class Parcours {
         return points;
     }
 
-    // Méthode main pour tester la classe Parcours
-    public static void main(String[] args) {
-        Parcours parcours = new Parcours();
-        for (Point point : parcours.points) {
-            System.out.println(point);
-        }
-    }
+    
 }

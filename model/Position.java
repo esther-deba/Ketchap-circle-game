@@ -8,7 +8,7 @@ public class Position {
     private static final int HAUTEUR = 10; 
     private static final int IMPULSION = 10; 
 
-    private static final int HAUTEUR_MAX = 200; 
+    private static final int HAUTEUR_MAX = 150; 
     private static final int HAUTEUR_MIN = 0; 
 	private static final int HAUTEUR_OVAL = 100;
 	private static final int BEFORE = 50;

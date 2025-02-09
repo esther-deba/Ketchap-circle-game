@@ -4,6 +4,7 @@ import controler.Descendre;
 import controler.ReactionClic;
 import controler.Redessine;
 import javax.swing.JFrame;
+import model.Parcours;
 import model.Position;
 import view.Affichage;
 
@@ -13,9 +14,10 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JFrame maFenetre = new JFrame("Exercice 1");
-		Position p = new Position();
-		Affichage affichage = new Affichage(p);
-		ReactionClic reactionClic = new ReactionClic(p);
+		Position position = new Position();
+		Parcours parcours = new Parcours();
+		Affichage affichage = new Affichage(position,parcours);
+		ReactionClic reactionClic = new ReactionClic(position);
 		affichage.addMouseListener(reactionClic);
 		
 		maFenetre.add(affichage);
@@ -26,7 +28,7 @@ public class Main {
 		Redessine redessine = new Redessine(affichage);
 		redessine.start();
 		
-		Descendre descendre = new Descendre(p);
+		Descendre descendre = new Descendre(position);
         descendre.start();
 
 	}
