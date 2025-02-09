@@ -6,20 +6,36 @@ import java.util.Random;
 
 public class Parcours {
     private static final Random RANDOM = new Random();
-    private static final int X_MIN = 50;
-    private static final int X_MAX = 150;
+    private static final int X_MIN = 20;
+    private static final int X_MAX = 50;
     // Liste de points 
-    private ArrayList<Point> points = new ArrayList<>();
+    private ArrayList<Point> points;
 
     public Parcours() {
-        // Crée un parcours aléatoire
-        int x = X_MIN;
-        int y = 0;
-        while (x < X_MAX) {
-            y = RANDOM.nextInt(Position.getHauteurOval());
+        points = new ArrayList<>();
+        genererParcours();
+    }
+
+    // Méthode pour générer un parcours aléatoire
+    public void genererParcours() {
+        int x = Position.getBefore();
+        int y = Position.getHauteurOval();
+
+        // Ajout des points de départ
+        points.add(new Point(x, y));
+        x+= X_MIN;
+        points.add(new Point(x, y));
+
+        // Génération des points aléatoires
+        while (x < Position.getAfter()) {
+            y = Position.getHauteurMin() + RANDOM.nextInt(Position.getHauteurMax() - Position.getHauteurMin() + 1);
+            x += X_MIN + RANDOM.nextInt(X_MAX - X_MIN + 1);
             points.add(new Point(x, y));
-            x += RANDOM.nextInt(50) + 50;
         }
+    }
+
+    public ArrayList<Point> getPoints() {
+        return points;
     }
 
     // Méthode main pour tester la classe Parcours

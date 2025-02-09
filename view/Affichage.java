@@ -24,6 +24,7 @@ public class Affichage extends JPanel{
 	public Affichage(Position position) {
 		this.position = position;
 		setPreferredSize(new Dimension(LARGEUR, HAUTEUR));
+		
 	}
 
 	
